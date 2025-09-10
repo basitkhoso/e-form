@@ -1,69 +1,75 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Evaluation Form</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-  <main class="container">
-    <h1>Contact Us</h1>
 
-    <form id="contactForm" novalidate>
-      <div class="form-group">
-        <label for="fullName">Full Name <span class="req">*</span></label>
-        <input
-          type="text"
-          id="fullName"
-          name="fullName"
-          required
-          aria-describedby="nameError"
-        />
-        <span id="nameError" class="error" aria-live="polite"></span>
-      </div>
+<div id="progressWrapper"><div id="progressBar"></div></div>
 
-      <div class="form-group">
-        <label for="email">Email <span class="req">*</span></label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          inputmode="email"
-          autocomplete="email"
-          required
-          aria-describedby="emailError"
-        />
-        <span id="emailError" class="error" aria-live="polite"></span>
-      </div>
+<main class="card">
+  <h1>✨ Performance Evaluation Form</h1>
 
-      <div class="form-group">
-        <label for="message">Message <span class="req">*</span></label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          aria-describedby="messageError"
-        ></textarea>
-        <span id="messageError" class="error" aria-live="polite"></span>
-      </div>
+  <!-- Personal Info -->
+  <section>
+    <div class="flex-head"><i data-lucide="user"></i><h2>Personal Information</h2></div>
+    <label>Name</label><input type="text" required>
+    <label>Department</label><input type="text" required>
+    <label>Role</label><input type="text" required>
+  </section>
 
-      <button type="submit" class="btn-submit">Submit</button>
+  <!-- Evaluation Criteria -->
+  <section>
+    <div class="flex-head"><i data-lucide="star"></i><h2>Evaluation Criteria</h2></div>
+    <label>Quality of Work (1–5)</label><input type="range" min="1" max="5" class="slider">
+    <label>Team Collaboration (1–5)</label><input type="range" min="1" max="5" class="slider">
+    <label>Timeliness (1–5)</label><input type="range" min="1" max="5" class="slider">
+  </section>
 
-      <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-    </form>
-  </main>
+  <!-- Strengths -->
+  <section>
+    <div class="flex-head"><i data-lucide="thumbs-up"></i><h2>Strengths</h2></div>
+    <textarea placeholder="e.g., Excellent problem-solving, proactive communication ..."></textarea>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- Areas of Improvement -->
+  <section>
+    <div class="flex-head"><i data-lucide="alert-circle"></i><h2>Areas of Improvement</h2></div>
+    <textarea placeholder="e.g., Prioritization, technical depth ..."></textarea>
+  </section>
+
+  <!-- Final Remarks -->
+  <section>
+    <div class="flex-head"><i data-lucide="message-circle"></i><h2>Final Remarks (optional)</h2></div>
+    <textarea></textarea>
+  </section>
+
+  <button id="submitBtn" class="btn" type="button"><i data-lucide="send"></i>Submit Evaluation</button>
+</main>
+
+<!-- Dark mode toggle + floating print -->
+<div id="controls">
+  <div id="darkToggle" class="switch" title="Toggle dark mode"></div>
+  <button id="printBtn" class="btn"><i data-lucide="printer"></i>🖨 Print Evaluation</button>
+</div>
+
+<div id="toast">✅ Your evaluation has been recorded successfully!</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
